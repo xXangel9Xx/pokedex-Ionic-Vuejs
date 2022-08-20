@@ -5,7 +5,7 @@ import TabsPage from '../views/TabsPage.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/tabs/tab1'
+    redirect: '/tabs/index'
   },
   {
     path: '/tabs/',
@@ -13,22 +13,26 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '',
-        redirect: '/tabs/tab1'
+        redirect: '/tabs/index'
       },
       {
-        path: 'tab1',
-        component: () => import('@/views/Tab1Page.vue')
+        path: 'index',
+        component: () => import('@/views/indexPokemons.vue')
       },
       {
-        path: 'tab2',
-        component: () => import('@/views/Tab2Page.vue')
+        path: 'battle',
+        component: () => import('@/views/battle.vue')
       },
       {
-        path: 'tab3',
-        component: () => import('@/views/Tab3Page.vue')
+        path: 'favorites',
+        component: () => import('@/views/favorites.vue')
       }
     ]
-  }
+  },
+  {
+    path: "/:catchAll(.*)",
+    redirect: '/'
+  },
 ]
 
 const router = createRouter({
