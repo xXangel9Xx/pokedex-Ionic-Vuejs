@@ -59,8 +59,8 @@ export default defineComponent({
     }
   },
   methods:{
-    // removeFromFavorites(index)
     getFavorites(){
+      this.favorites = [] as any
       let pokemonsID = localStorage.getItem('favoritesPokemons')
       if(!pokemonsID) return 
       pokemonsID = JSON.parse(pokemonsID)
@@ -99,7 +99,7 @@ export default defineComponent({
     }
 
   },
-  created(){
+  ionViewDidEnter(){
     this.getFavorites()
   }
 });
